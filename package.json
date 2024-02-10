@@ -1,0 +1,22 @@
+{
+  "name": "template_witout_auth",
+  "version": "1.0.0",
+  "description": "Template without Auth Only error handling",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "debug": "ndb server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Regev Avital",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "morgan": "^1.10.0",
+    "ndb": "^1.1.5",
+    "nodemon": "^3.0.3",
+    "prettier": "^2.8.8"
+  }
+}

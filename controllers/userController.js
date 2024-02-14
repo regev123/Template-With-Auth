@@ -46,3 +46,26 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
     data: null,
   });
 });
+
+exports.getUser = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user)
+    return next(
+      new AppError(`The user with ID: ${req.params.id} does not exist!.`, 400)
+    );
+
+  res.status(200).json({
+    status: 'success',
+    user,
+  });
+});
+
+exports.getAllUsers = catchAsync(async (req, res, next) => {
+  const users = await User.find();
+
+  res.status(200).json({
+    status: 'success',
+    users,
+  });
+});

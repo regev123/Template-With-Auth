@@ -69,6 +69,7 @@ userSchema.pre('save', function (next) {
 
 userSchema.pre(/^find/, function (next) {
   // this points to the current query
+  this.select('-__v');
   this.find({ active: { $ne: false } });
   next();
 });
@@ -102,7 +103,6 @@ userSchema.methods.createPasswordResetToken = function () {
     .update(resetToken)
     .digest('hex');
 
-  console.log({ resetToken }, this.passwordResetToken);
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 
   return resetToken;
